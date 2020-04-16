@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 9001",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -14,7 +15,9 @@
     "jquery": "^3.4.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
+    "vue-append": "^2.0.0",
     "vue-form-wizard": "^0.8.4",
+    "vue-multiselect": "^2.1.6",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2"
   },

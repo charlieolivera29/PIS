@@ -1,11 +1,11 @@
 <template>
-<div class="card shadow mb-4">
-	<div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"></div>
+<div class="card shadow-sm mb-4">
 	<div class="card-body">
+		<h3>Educational Background</h3>
 		<form>
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table" id="dataTable" width="100%" cellspacing="0">
 			<tr>
-			<th><input class='check_all' type='checkbox' @click="select_all()" id="check_all" /><label class="pl-3" for="check_all">Educational Background</label></th>
+			<th><input class='check_all' type='checkbox' @click="select_all()" id="check_all" /><label class="pl-3" for="check_all">Select All</label></th>
 			</tr>
 			</table>
 
@@ -18,14 +18,14 @@
 		<div class="row m-0 p-0 mt-2">
 			<div class="col-md-6 pr-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Institute/University Name</label>
-					<input type="text" name="institute_name[]" class="input-edit-s w-100" placeholder="Enter Institute Name">
+					<label class="label-s t-md">Institute/University Name</label>
+					<input type="text" name="institute_name[]" class="input-edit-s w-100">
 				</div>
 			</div>
 			<div class="col-md-6 px-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Institute/University Location</label>
-					<input type="text" name="institute_location[]" class="input-edit-s w-100" placeholder="Enter Institute Location">
+					<label class="label-s t-md">Institute/University Location</label>
+					<input type="text" name="institute_location[]" class="input-edit-s w-100">
 				</div>
 			</div>
 		</div>
@@ -33,8 +33,8 @@
 		<div class="row m-0 p-0 mt-2">
 			<div class="col-md-4 pr-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Graduation Date</label>
-					<input type="text" name="graduation_date[]" class="input-edit-s w-100">
+					<label class="label-s t-md">Graduation Date</label>
+					<input type="date" name="graduation_date[]" class="input-edit-s w-100">
 				</div>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 		<div class="row m-0 p-0 mt-2">
 			<div class="col-md-4 pr-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Qualification</label>
+					<label class="label-s t-md">Qualification</label>
 					<select class="input-select-s w-100" name="qualification[]">
 						<option value="" disabled selected>Select Qualification</option>
 						<option value="Sr.">Sr.</option>
@@ -58,8 +58,8 @@
 		<div class="row m-0 p-0 mt-2">
 			<div class="col-md-4 pr-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Major</label>
-					<input type="text" name="major[]" class="input-edit-s w-100" placeholder="Enter Major">
+					<label class="label-s t-md">Major</label>
+					<input type="text" name="major[]" class="input-edit-s w-100">
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 		<div class="row m-0 p-0 mt-2">
 			<div class="col-md-12 pr-1">
 				<div class="form-s">
-					<label class="label-s t-primary bold">Other Information</label>
+					<label class="label-s t-md">Other Information</label>
 					<textarea rows="3" name="other_information[]" class="input-area-s w-100"></textarea>
 				</div>
 			</div>
@@ -90,24 +90,19 @@ export default{
 		$(document).ready(function() {
 			var i=2;
 			var j=0;
-
 			$(".addmore").on('click',function(){
 				var data = $('#educational_background').html();
 				var input = '<input type="checkbox" class="case" id="index' + j + '"/><label class="pl-3" for="index'+j+'"> Educaitonal Background '+j+'</label>'
-
 				
 				
 				var append_item = "<tr><td>" + input + "<br>" + data + "</td></tr>";
 				$('table').append(append_item);
-
 				i++;
 				j++;
 			});
-
 			$(".delete").on('click', function() {
 				$('.case:checkbox:checked').parents("tr").remove();
 			});
-
 			$('#dataTable').DataTable();
 		});
 	},

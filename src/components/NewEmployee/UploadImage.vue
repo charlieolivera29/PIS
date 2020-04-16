@@ -1,25 +1,31 @@
 <template>
 <div id="upload">
-  <div class="card shadow mb-4">
-    <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"></div>
+  <div class="card shadow-sm mb-4">
     <div class="card-body">
       <div v-if="!image">
         <h2>Select an image</h2>
-        <span class="btn btn-primary btn-sm btn-file">
-        Browse <input type="file" @change="onFileChange">
+        <img src="../../assets/img/default.jpg" class="rounded-circle img-upload" />
+        <span class="btn btn-success btn-sm btn-file">
+        <i class="fas fa-fw fa-image text-white"></i> Choose Photo<input type="file" @change="onFileChange">
         </span>
+        <br>
+        <br>
+        <center>
+          <p class="text-success">Almost done! Upload a photo of the employee!</p>
+        </center>
       </div>
       <div v-else>
-        <h5 class=""></h5>
+        <h2>Select an image</h2>
         <img :src="image" class="rounded-circle img-upload" />
-        <span class="btn btn-primary btn-sm btn-file">
-        Change Image <input type="file" @change="onFileChange">
+        <span class="btn btn-success btn-sm btn-file">
+        <i class="fas fa-fw fa-image text-white"></i> Change Photo<input type="file" @change="onFileChange">
         </span>
+        <br>
+        <br>
+        <center>
+          <p class="text-success">Almost done! Please review all the details before saving!</p>
+        </center>
       </div>
-      <br>
-      <center>
-        <p class="text-success">Almost done! Please review all the details before saving!</p>
-      </center>
     </div>
   </div>
 </div>
