@@ -15,7 +15,7 @@
     <div class="row">
         <!-- Pie Chart -->
         <div class="col-xl-4 col-lg-5 my-auto">
-          <div class="card shadow mb-4">
+          <div class="card shadow-sm mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
               <i class="fas fa-fw fa-arrow-left text-dark" @click="back()"></i>
@@ -68,7 +68,7 @@
 
 
 		<div class="col-xl-4 col-lg-5 my-auto" v-if="!isStatusHidden">
-			<div class="card shadow mb-4">
+			<div class="card shadow-sm mb-4">
 				<div class="card-header py-2 d-flex flex-row align-items-center">
 					<h6 class="m-0 mt-2 font-weight-bold text-primary mx-auto">Update Status</h6>
 				</div>
@@ -95,7 +95,7 @@
 
 
         <div id="changepassword" class="col-xl-4 col-lg-5 my-auto" v-if="!isCPHidden">
-          <div class="card shadow mb-4">
+          <div class="card shadow-sm mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-2 d-flex flex-row align-items-center">
               <h6 class="m-0 mt-2 font-weight-bold text-primary mx-auto">Change Password</h6>

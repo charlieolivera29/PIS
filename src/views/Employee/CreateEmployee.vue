@@ -6,6 +6,11 @@
 			<div id="content">
 			<TopBar/>
 				<div class="container-fluid">
+					<div class="card">
+						<div class="card-header bg-white py-2">
+							<span class="m-0 font-weight-bold t-lg t-primary">Employee</span><span class="t-lg t-dimgray font-weight-bold"> / Create</span>
+						</div>
+					</div>
 					<Wizard/>
 				</div>
 			</div>

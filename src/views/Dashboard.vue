@@ -18,7 +18,7 @@
           <div class="row">
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100">
+              <div class="card border-left-primary shadow-sm h-100">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -35,7 +35,7 @@
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100">
+              <div class="card border-left-success shadow-sm h-100">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -52,7 +52,7 @@
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100">
+              <div class="card border-left-info shadow-sm h-100">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -78,7 +78,7 @@
 
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100">
+              <div class="card border-left-warning shadow-sm h-100">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -99,11 +99,11 @@
           <div class="row">
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
+            <div class="col-xl-4 col-lg-5 w-75">
+              <div class="card shadow-sm mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Employee per Department</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -111,14 +111,18 @@
                     <canvas id="myPieChart"></canvas>
                   </div>
                   <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
+                    <span class="mr-1">
+                      <i class="fas fa-circle text-primary"></i> I.T Department
                     </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
+                    <span class="mr-1">
+                      <i class="fas fa-circle text-success"></i> HR Department
                     </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
+                    <br>
+                    <span class="mr-1">
+                      <i class="fas fa-circle text-warning"></i> Recruitment
+                    </span>
+                    <span class="mr-1">
+                      <i class="fas fa-circle text-info"></i> Sales
                     </span>
                   </div>
                 </div>
@@ -128,7 +132,7 @@
 
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
+              <div class="card shadow-sm mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
@@ -177,7 +181,10 @@
 
 </div>
 </template>
-<script src="../assets/vendor/chart.js/Chart.min.js"></script>
+
+<script src="../../public/imports/vendor/chart.js/Chart.min.js"></script>
+<script src="../../public/imports/js/demo/chart-area-demo.js"></script>
+<script src="../../public/imports/js/demo/chart-pie-demo.js"></script>
 
 <script>
 import SideBar from '@/components/SideBar.vue'
@@ -185,6 +192,14 @@ import TopBar from '@/components/TopBar.vue'
 
 export default {
   name: 'Dashboard',
+  data() {
+    return{
+      it: 20,
+      hr: 25,
+      rec: 25,
+      sales: 20,
+    }
+  },
   components: {
     SideBar,
     TopBar
@@ -205,18 +220,18 @@ export default {
     var myPieChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ["App Dev", "Tech Support", "Career Magnet"],
+        labels: ["I.T Department","Recruitment", "HR Department", "Sales"],
         datasets: [{
-          data: [45, 15, 20],
-          backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
+          data: [this.it, this.rec, this.hr, this.sales],
+          backgroundColor: ['#4e73df','#F1BE3D', '#1cc88a', '#36b9cc'],
+          hoverBackgroundColor: ['#2e59d9', '#F1BE1A', '#17a673', '#2c9faf'],
+          hoverBorderColor: "#EDEEF1",
         }],
       },
       options: {
         maintainAspectRatio: false,
         tooltips: {
-          backgroundColor: "rgb(255,255,255)",
+          backgroundColor: "#EDEEF1",
           bodyFontColor: "#858796",
           borderColor: '#dddfeb',
           borderWidth: 1,

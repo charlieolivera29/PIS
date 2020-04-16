@@ -1,27 +1,28 @@
 <template>
 	<div id="employee">
-		<form-wizard @on-complete="onComplete()" shape="tab" color="#1BBE83">
-			<h5 slot="title">Create New Employee</h5>
-			<tab-content title="Basic Info"
-			icon="fa fa-id-card-alt">
-				<BasicInfo id="basicinfo"/>
+		<form-wizard @on-complete="onComplete()" shape="tab" color="#2ACB91" ref="wizard">
+			<h5 slot="title" hidden></h5>
+			<tab-content title="Basic Information" icon="fa fa-id-card-alt" :before-change="beforeTabSwitch">
+				<BasicInfo/>
 			</tab-content>
-			<tab-content title="Educational Background"
-			icon="fa fa-user-graduate">
+			<tab-content title="Educational Background" icon="fa fa-user-graduate" :before-change="beforeTabSwitch">
 				<EducationalBackground/>
 			</tab-content>
-			<tab-content title="Other Information"
-			icon="fa fa-portrait">
-				<OtherInfo id="otherinfo"/>
+			<tab-content title="Additional Information" icon="fa fa-portrait" :before-change="beforeTabSwitch">
+				<OtherInfo/>
 			</tab-content>
-			<tab-content title="Job Position"
-			icon="fa fa-user-tie">
-				<JobPosition id="jobposition"/>
+			<tab-content title="Job Position" icon="fa fa-user-tie" :before-change="beforeTabSwitch">
+				<JobPosition/>
 			</tab-content>
-			<tab-content title="Payroll Details"
-			icon="fa fa-wallet">
-				<PayrollDetails id="payrolldetails"/>
+			<tab-content title="Payroll Details" icon="fa fa-wallet" :before-change="beforeTabSwitch">
+				<PayrollDetails/>
 			</tab-content>
+			<tab-content title="Upload Image" icon="fa fa-image" :before-change="beforeTabSwitch">
+				<UploadImage/>
+			</tab-content>
+            <button class="btn btn-success btn-sm py-1 px-5" slot="finish"> Save</button>
+            <button class="btn btn-success btn-sm py-1 px-5" slot="next"> Next</button>
+            <button class="btn btn-success btn-sm py-1 px-5" slot="prev"> Back</button>
 		</form-wizard>
 
 	<div class="modal" id="viewAll">
@@ -51,6 +52,7 @@ import EducationalBackground from '@/components/NewEmployee/EducationalBackgroun
 import OtherInfo from '@/components/NewEmployee/OtherInfo.vue';
 import JobPosition from '@/components/NewEmployee/JobPosition.vue';
 import PayrollDetails from '@/components/NewEmployee/PayrollDetails.vue';
+import UploadImage from '@/components/NewEmployee/UploadImage.vue';
 
 export default{
 	name: 'CreateEmployee',
@@ -61,12 +63,17 @@ export default{
 		EducationalBackground,
 		OtherInfo,
 		JobPosition,
-		PayrollDetails
+		PayrollDetails,
+		UploadImage
 	},
 	methods: {
 		onComplete: function(){
 			alert('Yay. Done!');
 			this.$router.push({name: 'Employees'})
+		},
+		beforeTabSwitch: function(){
+			$(window).scrollTop(0);
+			return true;
 		}
 	},
 	mounted() {
@@ -74,6 +81,12 @@ export default{
 
 		$('#viewAll').on('show.bs.modal', function() {
 			$('#view').append($('#basicinfo').html());
+		});
+
+		var wizard = this.$refs.wizard
+		wizard.maxStep = wizard.tabs.length - 1
+		wizard.tabs.forEach((tab)=>{
+			tab.checked = true
 		});
 	}
 };

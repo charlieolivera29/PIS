@@ -1,98 +1,69 @@
 <template>
-<div class="card shadow mb-4">
-	<div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"></div>
+<div class="card shadow-sm mb-4">
 	<div class="card-body">
 		<form class="user">
-			
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
-					<div v-if="!image">
-					<h5 class=""></h5>
-					<img src="../../assets/logo.png" class="rounded-circle img-upload" />
-					<span class="btn btn-primary btn-sm btn-file">
-					Change Image <input type="file" @change="onFileChange">
-					</span>
-					</div>
-					<div v-else>
-					<h5 class=""></h5>
-					<img :src="image" class="rounded-circle img-upload" />
-					<span class="btn btn-primary btn-sm btn-file">
-					Change Image <input type="file" @change="onFileChange">
-					</span>
-					</div>
-				</div>
-			</div>
-			
+			<h3>Basic Information</h3>
+			<hr>
 			<div class="row m-0 p-0 mt-3">
-				<div class="col-md-4 pr-1">
+				<div class="col-md-3">
 					<div class="form-s">
-						<label class="label-s t-primary bold">Employee Code</label>
-						<input type="email" name="text" class="input-edit-s w-100" placeholder="Enter Employee Code">
+						<label class="label-s t-md">Employee Code</label>
+						<input type="text" name="text" class="input-edit-s w-100" placeholder="">
 					</div>
 				</div>
 			</div>
 
 			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
+				<div class="col-md-2 pr-0">
 					<div class="form-s">
-						<label class="label-s t-primary bold">Suffix Name</label>
+						<label class="label-s t-md">Suffix Name</label>
 						<select class="input-select-s w-100">
-							<option value="" disabled selected>Suffix Name</option>
-							<option value="Sr.">Sr.</option>
-							<option value="Jr.">Jr.</option>
-							<option value="III">III</option>
-							<option value="IV">IV</option>
-							<option value="V">V</option>
+							<option value="" disabled selected>Select Suffix</option>
+							<option value="Mrs.">Mrs.</option>
+							<option value="Mr.">Mr.</option>
+							<option value="Ms.">Ms.</option>
 						</select>
 					</div>
 				</div>
-			</div>
 
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
+				<div class="col-md-3 pr-0">
 					<div class="form-s">
-						<label class="label-s t-primary bold">First Name</label>
-						<input type="text" name="text" class="input-edit-s w-100" placeholder="Enter First Name">
+						<label class="label-s t-md">First Name</label>
+						<input type="text" name="text" class="input-edit-s w-100" placeholder="">
 					</div>
 				</div>
-			</div>
 
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
+				<div class="col-md-3 pr-0">
 					<div class="form-s">
-						<label class="label-s t-primary bold">Middle Name</label>
-						<input type="text" name="text" class="input-edit-s w-100" placeholder="Enter Middle Name">
+						<label class="label-s t-md m-0">Middle Name</label>
+						<input type="text" name="text" class="input-edit-s w-100" placeholder="">
 					</div>
 				</div>
-			</div>
 
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
+				<div class="col-md-3 pr-0">
 					<div class="form-s">
-						<label class="label-s t-primary bold">Last Name</label>
-						<input type="text" name="text" class="input-edit-s w-100" placeholder="Enter Last Name">
-					</div>
-				</div>
-			</div>
-			
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
-					<div class="form-s">
-						<label class="label-s t-primary bold">Company Email</label>
-						<input type="email" name="text" class="input-edit-s w-100" placeholder="Enter Company Email">
-					</div>
-				</div>
-			</div>
-			
-			<div class="row m-0 p-0 mt-2">
-				<div class="col-md-4 pr-1">
-					<div class="form-s">
-						<label class="label-s t-primary bold">Personal Email</label>
-						<input type="email" name="text" class="input-edit-s w-100" placeholder="Enter Personal Email">
+						<label class="label-s t-md m-0">Last Name</label>
+						<input type="text" name="text" class="input-edit-s w-100" placeholder="">
 					</div>
 				</div>
 			</div>
 
+			<!-- <div class="b-bottom-dark mt-3"><label class="label-s t-sm t-silver bold pl-2">Employee Email</label></div> -->
+			<div class="row m-0 p-0 mt-2">
+				<div class="col-md-4 pr-0">
+					<div class="form-s">
+						<label class="label-s t-md m-0">Company Email</label>
+						<input type="email" name="text" class="input-edit-s w-100" placeholder="">
+					</div>
+				</div>
+
+				<div class="col-md-4 pr-0">
+					<div class="form-s">
+						<label class="label-s t-md m-0">Personal Email</label>
+						<input type="email" name="text" class="input-edit-s w-100" placeholder="">
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 </div>
